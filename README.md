@@ -17,7 +17,9 @@ npm install
 #### Use it!
 ##### First time with MongoDB? 
 Read before how to create a new database [here](https://github.com/joseanfernandez/MongoDB)
-Create a new database called ###### chat
+
+Create a new database called chat.
+
 
 ```console
 npm start
