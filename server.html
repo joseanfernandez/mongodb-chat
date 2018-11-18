@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1 class="dispaly-4">Start Chatting</h1>
+            <br>
+            <input id="txtName" class="form-control" placeholder="Name" type="text">
+            <br>
+            <textarea id="txtMessage" class="form-control" placeholder="Message"></textarea>
+            <br>
+            <button onclick="fun()" id="send" class="btn btn-success">Send</button>
+        </div>
+        <div id="messages"></div>
+    </div>
+</body>
+<script>
+  function fun() {
+    console.log('hi');
+    var chat = {
+                name: $("#txtName").val(), chat: $("#txtMessage").val()
+            }
+            postChat(chat)
+  }
+  function postChat(chat){
+        console.log(chat)
+        $.post("http://localhost:3020/chats", chat)
+    }
+
+    $(() => {
+        $("send").click(() => {
+          console.log('clicking')
+          alert('HI');
+            var chat = {
+                name: $("#txtName").val(), chat: $("#txtMessage").val()
+            }
+            postChat(chat)
+        })
+    })
+    
+</script>
+</html>
